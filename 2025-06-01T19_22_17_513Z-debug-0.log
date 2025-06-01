@@ -1,0 +1,69 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Users\xtian\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+1 info using npm@11.4.1
+2 info using node@v22.16.0
+3 silly config load:file:C:\Users\xtian\AppData\Roaming\npm\node_modules\npm\npmrc
+4 silly config load:file:C:\PROYECTOS\web_pecanas\.npmrc
+5 silly config load:file:C:\Users\xtian\.npmrc
+6 silly config load:file:C:\Users\xtian\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm install @astrojs/image @heroicons/react @astrojs/tailwind @astrojs/sitemap
+8 verbose argv "install" "@astrojs/image" "@heroicons/react" "@astrojs/tailwind" "@astrojs/sitemap"
+9 verbose logfile logs-max:10 dir:C:\Users\xtian\AppData\Local\npm-cache\_logs\2025-06-01T19_22_17_513Z-
+10 verbose logfile C:\Users\xtian\AppData\Local\npm-cache\_logs\2025-06-01T19_22_17_513Z-debug-0.log
+11 silly logfile start cleaning logs, removing 1 files
+12 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+13 silly logfile done cleaning log files
+14 silly idealTree buildDeps
+15 silly fetch manifest @astrojs/image@*
+16 silly packumentCache full:https://registry.npmjs.org/@astrojs%2fimage cache-miss
+17 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+18 http fetch GET 200 https://registry.npmjs.org/@astrojs%2fimage 2382ms (cache miss)
+19 silly packumentCache full:https://registry.npmjs.org/@astrojs%2fimage set size:undefined disposed:false
+20 silly fetch manifest astro@^5.8.1
+21 silly packumentCache full:https://registry.npmjs.org/astro cache-miss
+22 http cache https://registry.npmjs.org/astro 16ms (cache hit)
+23 silly packumentCache full:https://registry.npmjs.org/astro set size:8050806 disposed:false
+24 silly fetch manifest astro@^2.10.15
+25 silly packumentCache full:https://registry.npmjs.org/astro cache-miss
+26 http cache https://registry.npmjs.org/astro 13ms (cache hit)
+27 silly packumentCache full:https://registry.npmjs.org/astro set size:8050806 disposed:false
+28 verbose stack Error: unable to resolve dependency tree
+28 verbose stack     at #failPeerConflict (C:\Users\xtian\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:1374:25)
+28 verbose stack     at #loadPeerSet (C:\Users\xtian\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:1340:33)
+28 verbose stack     at async #buildDepStep (C:\Users\xtian\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:915:11)
+28 verbose stack     at async Arborist.buildIdealTree (C:\Users\xtian\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:182:7)
+28 verbose stack     at async Promise.all (index 1)
+28 verbose stack     at async Arborist.reify (C:\Users\xtian\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\reify.js:130:5)
+28 verbose stack     at async Install.exec (C:\Users\xtian\AppData\Roaming\npm\node_modules\npm\lib\commands\install.js:149:5)
+28 verbose stack     at async Npm.exec (C:\Users\xtian\AppData\Roaming\npm\node_modules\npm\lib\npm.js:208:9)
+28 verbose stack     at async module.exports (C:\Users\xtian\AppData\Roaming\npm\node_modules\npm\lib\cli\entry.js:67:5)
+29 error code ERESOLVE
+30 error ERESOLVE unable to resolve dependency tree
+31 error
+32 error While resolving: @0.0.1
+32 error Found: astro@5.8.1[2m[22m
+32 error [2mnode_modules/astro[22m
+32 error   astro@"^5.8.1" from the root project
+32 error
+32 error Could not resolve dependency:
+32 error [95mpeer[39m astro@"^2.10.15" from @astrojs/image@0.18.0[2m[22m
+32 error [2mnode_modules/@astrojs/image[22m
+32 error   @astrojs/image@"*" from the root project
+32 error
+32 error Fix the upstream dependency conflict, or retry
+32 error this command with --force or --legacy-peer-deps
+32 error to accept an incorrect (and potentially broken) dependency resolution.
+33 error
+33 error
+33 error For a full report see:
+33 error C:\Users\xtian\AppData\Local\npm-cache\_logs\2025-06-01T19_22_17_513Z-eresolve-report.txt
+34 silly unfinished npm timer reify 1748805738003
+35 silly unfinished npm timer reify:loadTrees 1748805738003
+36 silly unfinished npm timer idealTree:buildDeps 1748805738075
+37 silly unfinished npm timer idealTree:#root 1748805738075
+38 verbose cwd C:\PROYECTOS\web_pecanas
+39 verbose os Windows_NT 10.0.26100
+40 verbose node v22.16.0
+41 verbose npm  v11.4.1
+42 verbose exit 1
+43 verbose code 1
+44 error A complete log of this run can be found in: C:\Users\xtian\AppData\Local\npm-cache\_logs\2025-06-01T19_22_17_513Z-debug-0.log

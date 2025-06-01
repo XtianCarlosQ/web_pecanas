@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@import "tailwindcss/utilities";
+
+@layer base {
+  :root {
+    --color-primary: oklch(70% 0.1 150);
+    --color-secondary: oklch(90% 0.05 150);
+    --color-pecana-50: #fdf8f0;
+    --color-pecana-100: #f9f0e1;
+    --color-pecana-200: #f3e0c2;
+    --color-pecana-300: #e8c78e;
+    --color-pecana-400: #dca65f;
+    --color-pecana-500: #d38c3a;
+    --color-pecana-600: #c5732b;
+    --color-pecana-700: #a35724;
+    --color-pecana-800: #834724;
+    --color-pecana-900: #6b3d1f;
+    --color-pecana-950: #3a1f0e;
+  }
+
+  .dark {
+    --color-primary: oklch(40% 0.1 150);
+    --color-secondary: oklch(50% 0.1 150);
+  }
+
+  body {
+    @apply bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100;
+  }
+}

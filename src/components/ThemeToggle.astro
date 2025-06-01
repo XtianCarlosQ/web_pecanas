@@ -1,0 +1,29 @@
+<button 
+  id="theme-toggle"
+  class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+  aria-label="Cambiar tema"
+>
+  <span class="dark:hidden">🌙</span>
+  <span class="hidden dark:inline">☀️</span>
+</button>
+
+<script is:inline>
+  // Usamos is:inline para que el script se ejecute en el navegador
+  document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    
+    // Verificar el tema guardado
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      html.classList.add('dark');
+    } else {
+      html.classList.remove('dark');
+    }
+
+    // Manejar el clic
+    themeToggle?.addEventListener('click', () => {
+      const isDark = html.classList.toggle('dark');
+      localStorage.theme = isDark ? 'dark' : 'light';
+    });
+  });
+</script>

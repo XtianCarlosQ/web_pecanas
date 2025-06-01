@@ -1,11 +1,88 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ProductCard from '../components/ProductCard.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const products = [
+  {
+    title: 'Saco de pecanas',
+    price: '26.50',
+    unit: 'kg',
+    description: 'Saco de 40kg de pecanas de primera calidad, seleccionadas cuidadosamente.',
+    imageSrc: '/images/saco_40kg.jpg',
+    imageAlt: 'Saco de pecanas de 40kg'
+  },
+  {
+    title: 'Pecanas peladas',
+    price: '65.00',
+    unit: 'kg',
+    description: 'Pecanas peladas listas para consumo directo o para tus recetas.',
+    imageSrc: '/images/pecana-pelada.png',
+    imageAlt: 'Pecanas peladas'
+  },
+  {
+    title: 'Saco económico',
+    price: '26.00',
+    unit: 'kg',
+    description: 'Saco de 50kg de pecanas, ideal para negocios de alto volumen.',
+    imageSrc: '/images/saco_50kg.jpg',
+    imageAlt: 'Saco económico de pecanas'
+  }
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Inicio | Pecanas del Perú">
+  <Hero 
+    title="Pecanas del Perú"
+    subtitle="Calidad y tradición en cada grano"
+    imageSrc="/images/hero-pecanas2.png"
+    imageAlt="Pecanas frescas"
+  />
+
+  <div id="productos" class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+          Nuestros Productos
+        </h2>
+        <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+          Calidad garantizada en cada uno de nuestros productos
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {products.map((product, index) => (
+          <ProductCard
+            title={product.title}
+            price={product.price}
+            unit={product.unit}
+            description={product.description}
+            imageSrc={product.imageSrc}
+            imageAlt={product.imageAlt}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div id="contacto" class="bg-amber-50 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-extrabold text-amber-900 sm:text-4xl">
+        ¿Listo para ordenar?
+      </h2>
+      <p class="mt-4 text-xl text-amber-700">
+        Contáctanos para más información sobre precios y disponibilidad
+      </p>
+      <div class="mt-8 flex justify-center">
+        <div class="inline-flex rounded-md shadow">
+          <a href="https://wa.me/51986295558" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700">
+            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12c0 1.85.53 3.56 1.43 5.02L2 22l5.01-1.34c1.38.75 2.94 1.19 4.58 1.19 5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.33 0-2.6-.26-3.77-.73l-.27-.08-2.79.75.75-2.79-.08-.27C5.26 14.6 5 13.33 5 12c0-3.86 3.14-7 7-7s7 3.14 7 7-3.14 7-7 7z" clip-rule="evenodd" />
+            </svg>
+            Escríbenos por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </Layout>
