@@ -24,8 +24,13 @@ const { title, subtitle, imageSrc, imageAlt } = Astro.props;
     <div class="relative pb-2 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
       <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-16 sm:px-6 md:mt-12 lg:mt-16 lg:px-8 xl:mt-20">
         <div class="sm:text-center md:text-center lg:text-left">
-          <h1 class="text-3xl sm:text-4xl md:text-4xl lg:text-4xl xl:text-5xl tracking-tight font-extrabold text-amber-50">
-            <span class="block xl:inline">{title}</span>
+          <h1 class="text-4xl sm:text-4xl font-extrabold text-amber-50 leading-tight">
+            {title.split('\n').map((line, idx) => (
+              <span>
+                {line}
+                {idx < title.split('\n').length - 1 && <br />}
+              </span>
+            ))}
           </h1>
 
           <h2>
