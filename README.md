@@ -1,6 +1,12 @@
 # 🥜 Pecanas Maja E-commerce
 
-Aplicación web moderna de comercio electrónico especializada en la venta de pecanas. Construida con Astro y Tailwind CSS, este proyecto presenta características avanzadas como cotizaciones en tiempo real e integración perfecta con WhatsApp.
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://html.spec.whatwg.org/)
+[![Astro](https://img.shields.io/badge/Astro-5.8.1-FF5D01.svg?logo=astro)](https://astro.build)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1.8-38B2AC.svg?logo=tailwind-css)](https://tailwindcss.com)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/es/docs/Web/JavaScript)
+[![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000.svg?logo=vercel)](https://vercel.com)
+
+Aplicación web moderna de comercio electrónico especializada en la venta de pecanas. Construida sobre HTML5 con Astro y Tailwind CSS v4.1.8, este proyecto presenta características avanzadas como cotizaciones en tiempo real e integración perfecta con WhatsApp.
 
 ![Vista previa del sitio](public/images/Screenshot_web.png)
 
@@ -26,14 +32,15 @@ Aplicación web moderna de comercio electrónico especializada en la venta de pe
   - Renderizado del lado del servidor para óptimo rendimiento
   - Estructura optimizada para SEO
   - Arquitectura de componentes modular
-  - Desarrollo con seguridad de tipos
+  - HTML semántico para mejor accesibilidad
 
 ## 🛠️ Stack Tecnológico
 
 ### Frontend
+- **HTML5** - Base estructural del proyecto con sintaxis moderna y semántica
 - **[Astro](https://astro.build/)** - Generador de sitios estáticos moderno y rápido
-- **[Tailwind CSS](https://tailwindcss.com/)** - Framework CSS utilitario
-- **JavaScript/TypeScript** - Mejor experiencia de desarrollo y seguridad de tipos
+- **[Tailwind CSS v4.1.8](https://tailwindcss.com/)** - Framework CSS utilitario de última generación
+- **JavaScript** - Interactividad y manipulación del DOM
 
 ### Herramientas de Desarrollo
 - **Vite** - Herramientas de frontend de última generación
