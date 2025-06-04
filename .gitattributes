@@ -1,11 +1,8 @@
 *.astro linguist-language=Astro
-*.astro linguist-detectable=true
 *.html linguist-language=HTML
-*.html linguist-detectable=true
 *.md linguist-language=Markdown
 *.css linguist-language=Tailwind
 *.js linguist-language=JavaScript
-*.ts linguist-detectable=true
 
 # Asegurar que Astro se detecte como HTML principalmente
 *.astro linguist-documentation=false
