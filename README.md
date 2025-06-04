@@ -1,48 +1,120 @@
-# Astro Starter Kit: Basics
+# 🥜 Pecanas Maja E-commerce
 
-```sh
-npm create astro@latest -- --template basics
-```
+Aplicación web moderna de comercio electrónico especializada en la venta de pecanas. Construida con Astro y Tailwind CSS, este proyecto presenta características avanzadas como cotizaciones en tiempo real e integración perfecta con WhatsApp.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+![Vista previa del sitio](public/images/Screenshot_web.png)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## ✨ Características Principales
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+- 🛍️ Catálogo de Productos Dinámico 
+  - Gestión de productos en tiempo real
+  - Vistas detalladas de productos
+  - Imágenes de alta calidad
+  
+- 💬 Integración con WhatsApp Business
+  - Solicitudes de cotización directas
+  - Formateo automático de mensajes
+  - Comunicación empresarial instantánea
+  
+- 🎨 Interfaz de Usuario Moderna
+  - Diseño adaptable a todos los dispositivos
+  - Soporte para tema claro/oscuro
+  - Transiciones y animaciones suaves
+  - Navegación intuitiva
+  
+- 🔧 Características Técnicas
+  - Renderizado del lado del servidor para óptimo rendimiento
+  - Estructura optimizada para SEO
+  - Arquitectura de componentes modular
+  - Desarrollo con seguridad de tipos
 
-## 🚀 Project Structure
+## 🛠️ Stack Tecnológico
 
-Inside of your Astro project, you'll see the following folders and files:
+### Frontend
+- **[Astro](https://astro.build/)** - Generador de sitios estáticos moderno y rápido
+- **[Tailwind CSS](https://tailwindcss.com/)** - Framework CSS utilitario
+- **JavaScript/TypeScript** - Mejor experiencia de desarrollo y seguridad de tipos
+
+### Herramientas de Desarrollo
+- **Vite** - Herramientas de frontend de última generación
+- **ESLint** - Calidad y consistencia del código
+- **Git** - Control de versiones y colaboración
+
+### Características de Rendimiento
+- Generación de sitios estáticos
+- Carga optimizada de recursos
+- Manejo de imágenes responsivas
+- Mínima huella de JavaScript
+
+### Despliegue
+- **[Vercel](https://vercel.com/)** - Plataforma de despliegue con:
+  - Despliegue automático desde Git
+  - Certificados SSL gratuitos
+  - CDN global
+  - Analytics integrado
+  - Previews por cada PR
+
+## 📁 Estructura del Proyecto
 
 ```text
 /
-├── public/
-│   └── favicon.svg
+├── public/              # Recursos estáticos
+│   ├── images/         # Imágenes de productos y UI
+│   └── favicon.ico     # Favicon del sitio
 ├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/     # Componentes reutilizables
+│   ├── layouts/        # Layouts de páginas
+│   ├── pages/          # Componentes de ruta
+│   ├── data/          # Datos y configuraciones
+│   ├── styles/        # Estilos globales
+│   └── config/        # Configuración del sitio
+└── package.json        # Dependencias del proyecto
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🚀 Comenzando
 
-## 🧞 Commands
+1. **Clonar el repositorio**
+   ```bash
+   git clone [url-repositorio]
+   ```
 
-All commands are run from the root of the project, from a terminal:
+2. **Instalar dependencias**
+   ```bash
+   npm install
+   ```
 
-| Command                   | Action                                           |
+3. **Iniciar servidor de desarrollo**
+   ```bash
+   npm run dev
+   ```
+
+4. **Construir para producción**
+   ```bash
+   npm run build
+   ```
+
+## 💻 Comandos de Desarrollo
+
+| Comando                   | Acción                                           |
 | :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| `npm install`             | Instalar dependencias                            |
+| `npm run dev`             | Iniciar servidor en `localhost:4321`             |
+| `npm run build`           | Construir sitio para producción en `./dist/`     |
+| `npm run preview`         | Previsualizar construcción localmente            |
 
-## 👀 Want to learn more?
+## 🌟 Mejoras Futuras
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- [x] Funcionalidad de carrito de compras
+- [x] Autenticación de usuarios
+- [x] Sistema de seguimiento de pedidos
+- [x] Panel de administración
+- [x] Integración de pasarela de pagos
+- [x] Integración de analytics
+
+## 📄 Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+## 🤝 Contribuciones
+
+¡Las contribuciones son bienvenidas! No dudes en enviar un Pull Request.
