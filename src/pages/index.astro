@@ -1,43 +1,52 @@
 ---
 // src/pages/index.astro
 
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import ProductCard from '../components/ProductCard.astro';
-import { products } from '../data/products.js';
-import { whatsappNumber, messages } from '../config/settings.js';
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import ProductCard from "../components/ProductCard.astro";
+import { products } from "../data/products.js";
+import { whatsappNumber, messages } from "../config/settings.js";
 ---
 
-<Layout title="Pecanas Maja Ica-Perú" description="Venta de pecanas Maja al por mayor y menor">
-  <Hero 
-    title="Pecanas Maja Ica-Lima-Perú \n Cosecha 2025"
+<Layout
+  title="Pecanas Maja Ica-Perú"
+  description="Venta de pecanas Maja al por mayor y menor"
+>
+  <Hero
+    title="Pecanas Maja Ica-Lima-Perú \n CHOSECHA 2025"
     subtitle="Sabor auténtico, calidad garantizada en cada grano"
     imageSrc="/images/hero_imagen.png"
     imageAlt="Pecanas frescas al por mayor y menor"
   />
 
-  <div id="productos" class="py-12 bg-white">
+  <div
+    id="productos"
+    class="py-12 bg-white drop-shadow-amber-950 text-amber-900
+                          dark:bg-amber-950/40 dark:text-amber-50 rounded-2xl m-2"
+  >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
-        <h2 class="text-4xl font-extrabold text-amber-900 sm:text-5xl">
-          Nuestros Productos
-        </h2>
-        <p class="mt-3 max-w-full mx-auto text-xl text-amber-700 sm:mt-4">
-          🔸 Calidad certificada  
-          🔸 Entrega directa a tu negocio  
-          🔸 Sabor y textura incomparables
+        <h2 class="text-4xl font-extrabold sm:text-5xl">Nuestros Productos</h2>
+        <p
+          class="mt-3 max-w-full mx-auto text-xl text-amber-700 sm:mt-4
+                  dark:text-amber-100"
+        >
+          🔸 Calidad certificada 🔸 Entrega directa a tu negocio 🔸 Sabor y
+          textura incomparables
         </p>
       </div>
 
       <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {products.map((product) => (
-          <ProductCard {...product} />
-        ))}
+        {products.map((product) => <ProductCard {...product} />)}
       </div>
     </div>
   </div>
 
-  <div id="contacto" class="bg-amber-950 py-16 rounded-2xl m-2">
+  <div
+    id="contacto"
+    class="bg-amber-950/90 py-16 rounded-2xl m-2 text-white drop-shadow-amber-50
+                          dark:bg-amber-950/40 dark:text-amber-950 relative"
+  >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-3xl font-extrabold text-amber-50 sm:text-4xl">
         ¿Listo para ordenar?
@@ -45,17 +54,45 @@ import { whatsappNumber, messages } from '../config/settings.js';
       <p class="mt-4 text-xl text-amber-100">
         Contáctanos para más información sobre precios y disponibilidad
       </p>
+
+      <!-- Botón de contacto -->
       <div class="mt-8 flex justify-center">
         <div class="inline-flex rounded-md shadow">
           <a
             href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messages.contactGeneral)}`}
             target="_blank"
-            class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700"
+            class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-2xl text-white bg-green-600
+                  shadow-sm shadow-amber-50/30
+                hover:bg-green-700 hover:shadow-amber-50/80 transition-colors"
           >
             Escríbenos por WhatsApp
           </a>
         </div>
       </div>
+    </div>
+
+    <!-- Botón TikTok -->
+    <div class="flex justify-center w-full mt-5">
+      <a
+        href="https://www.tiktok.com/@fundosanfermin?_t=ZM-8wxXKgEYosQ&_r=1"
+        target="_blank"
+        class="rounded-2xl p-2 bg-zinc-950 text-white transition-colors border-0 shadow-sm shadow-amber-50/30
+                 hover:bg-slate-950 hover:shadow-amber-50/80"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 48 48"
+          width="32"
+          height="32"
+          fill="currentColor"
+        >
+          <g>
+            <path
+              d="M33.5 6.5c.3 2.7 2.2 7.2 7.1 7.6v6.1c-2.1.2-4.2-.1-6.1-.8v13.2c0 7.2-6.1 10.4-11.2 10.4-5.2 0-10.3-3.2-10.3-10.4 0-7.1 5.1-10.3 10.3-10.3.5 0 1 .1 1.5.1v6.2c-.5-.1-1-.2-1.5-.2-2.2 0-4.2 1.5-4.2 4.2 0 2.8 2 4.2 4.2 4.2 2.1 0 4.2-1.3 4.2-4.2V6.5h6z"
+            ></path>
+          </g>
+        </svg>
+      </a>
     </div>
   </div>
 </Layout>

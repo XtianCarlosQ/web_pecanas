@@ -1,29 +1,58 @@
 <button 
   id="theme-toggle"
-  class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+  class="fixed top-4 right-4 w-10 h-10 flex items-center justify-center
+         rounded-lg cursor-pointer transition-all duration-200
+         bg-amber-800/90 hover:bg-amber-700/90
+         dark:bg-amber-900/90 dark:hover:bg-amber-800/90"
   aria-label="Cambiar tema"
+  type="button"
 >
-  <span class="dark:hidden">🌙</span>
-  <span class="hidden dark:inline">☀️</span>
+  <span id="moon-icon" class="block text-amber-800 text-xl">🌙</span>
+  <span id="sun-icon" class="hidden text-amber-100 text-xl">☀️</span>
 </button>
 
 <script is:inline>
-  // Usamos is:inline para que el script se ejecute en el navegador
-  document.addEventListener('DOMContentLoaded', () => {
-    const themeToggle = document.getElementById('theme-toggle');
-    const html = document.documentElement;
-    
-    // Verificar el tema guardado
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      html.classList.add('dark');
-    } else {
-      html.classList.remove('dark');
+  // Inicialización: preferencia guardada o sistema
+  function getPreferredTheme() {
+    if (localStorage.getItem('theme')) {
+      return localStorage.getItem('theme');
     }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
 
-    // Manejar el clic
-    themeToggle?.addEventListener('click', () => {
-      const isDark = html.classList.toggle('dark');
-      localStorage.theme = isDark ? 'dark' : 'light';
-    });
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    updateIcons(theme);
+  }
+
+  function updateIcons(theme) {
+    const moon = document.getElementById('moon-icon');
+    const sun = document.getElementById('sun-icon');
+    if (theme === 'dark') {
+      moon.classList.remove('hidden');
+      sun.classList.add('hidden');
+    } else {
+      moon.classList.add('hidden');
+      sun.classList.remove('hidden');
+    }
+  }
+
+  // Al cargar
+  const initialTheme = getPreferredTheme();
+  setTheme(initialTheme);
+
+  // Toggle manual
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    setTheme(next);
+  });
+
+  // Si el usuario cambia la preferencia del sistema y no hay override manual
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+      setTheme(e.matches ? 'dark' : 'light');
+    }
   });
 </script>

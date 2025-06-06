@@ -10,22 +10,45 @@ interface Props {
   product: string;
 }
 
-const { product_id, title, price, unit, description, imageSrc, imageAlt, product } = Astro.props;
+const {
+  product_id,
+  title,
+  price,
+  unit,
+  description,
+  imageSrc,
+  imageAlt,
+  product,
+} = Astro.props;
 ---
 
-<div class="flex flex-col rounded-2xl shadow-lg overflow-hidden bg-amber-950/10 hover:shadow-xl transition-shadow duration-300 h-full">
-  <div class="flex-shrink-0 h-64 overflow-hidden flex items-center justify-center" style="background-color: var(--color-pecana-950);">
-    <img 
-      src={imageSrc} 
-      alt={imageAlt} 
-      class="max-w-full max-h-full object-contain" 
-      style="background-color: var(--color-pecana-950); display: block; margin: auto;"
-      loading="lazy" 
+<div
+  class="flex flex-col rounded-2xl h-full overflow-hidden
+            bg-amber-950/10 shadow-lg hover:shadow-xl transition-shadow duration-300
+              dark:bg-transparent dark:hover:shadow-amber-800/50 dark:text-amber-50"
+>
+  <div
+    class="flex-shrink-0 h-64 overflow-hidden flex items-center justify-center rounded-t-2xl
+              bg-amber-950/90
+              dark:bg-amber-950/90"
+  >
+    <img
+      src={imageSrc}
+      alt={imageAlt}
+      class="max-w-full max-h-full object-contain dark:bg-amber-500"
+      style="display: block; margin: auto;"
+      loading="lazy"
     />
   </div>
-  <div class="flex-1 p-6 flex flex-col justify-between">
+  <div
+    class="flex-1 p-6 flex flex-col justify-between
+                dark:bg-amber-50/80 dark:text-amber-50"
+  >
     <div class="flex-1">
-      <p class="text-xl font-bold text-amber-950">{title}</p>
+      <p class="text-xl font-bold
+                dark:text-amber-950">
+        {title}
+      </p>
       <p class="mt-3 text-base text-amber-700">{description}</p>
     </div>
     <div class="mt-6 flex items-center">
@@ -34,10 +57,10 @@ const { product_id, title, price, unit, description, imageSrc, imageAlt, product
         <span class="ml-2 font-extrabold text-amber-600">/ {unit}</span>
       </div>
       <div class="ml-auto">
-        <a 
-          href={`/cotizar/${encodeURIComponent(product_id)}`} 
-          class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium 
-                 rounded-md shadow-sm text-amber-50 bg-amber-700 hover:bg-amber-800"
+        <a
+          href={`/cotizar/${encodeURIComponent(product_id)}`}
+          class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium
+                rounded-md shadow-lg text-amber-50 bg-amber-900 hover:bg-amber-800 hover:shadow-amber-950/50"
         >
           Cotizar
         </a>

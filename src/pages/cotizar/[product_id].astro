@@ -1,9 +1,9 @@
 ---
 // src/pages/cotizar/[product_id].astro
 
-import Layout from '../../layouts/Layout.astro';
-import { products } from '../../data/products.js';
-import { whatsappNumber, messages } from '../../config/settings.js';
+import Layout from "../../layouts/Layout.astro";
+import { products } from "../../data/products.js";
+import { whatsappNumber, messages } from "../../config/settings.js";
 
 // ————————————————————————————————————————————————
 // 1. Prerenderizamos todas las rutas posibles
@@ -24,52 +24,73 @@ const foundProduct = products.find((p) => p.product_id === product_id) || null;
 
 // 4. Si no existe el product_id, usamos un fallback
 const product = foundProduct || {
-  title: 'Producto no encontrado',
-  price: '0.00',
-  unit: '',
-  product: '',
-  description: 'No se encontró información para este producto.',
-  imageSrc: '/images/default.jpg',
-  imageAlt: 'Producto no encontrado',
+  title: "Producto no encontrado",
+  price: "0.00",
+  unit: "",
+  product: "",
+  description: "No se encontró información para este producto.",
+  imageSrc: "/images/default.jpg",
+  imageAlt: "Producto no encontrado",
   peso: 1, // por defecto
 };
 
 // 5. Desestructuramos, renombrando `product` → `productName`
-const { title, price, unit, product: productName, description, imageSrc, imageAlt, peso } = product;
+const {
+  title,
+  price,
+  unit,
+  product: productName,
+  description,
+  imageSrc,
+  imageAlt,
+  peso,
+} = product;
 
 // 6. Tomamos el template que definimos en settings.js
 const productRequestTemplate = messages.productRequestTemplate;
 ---
 
 <Layout title={`Cotizar ${title} | Pecanas Maja Ica-Perú`}>
-  <div class="min-h-screen bg-amber-50/30 py-12">
-    <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
-
+  <div class="min-h-screen bg-amber-50/30 py-12
+            dark:bg-black/10">
+    <div
+      class="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden"
+    >
       <!-- Breadcrumb -->
       <div class="bg-amber-900 px-6 py-3">
         <nav class="text-amber-100 text-xl" aria-label="Breadcrumb">
           <ol class="list-none p-0 inline-flex">
             <li class="flex items-center">
               <a href="/" class="hover:text-amber-600 font-bold">Inicio</a>
-              <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 
+              <svg
+                class="fill-current w-3 h-3 mx-3"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+              >
+                <path
+                  d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 
                          9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522
                          -.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317
                          -24.544.04-33.901l22.667-22.667c9.373-9.373 
                          24.569-9.373 33.941 0L285.475 239.03c9.373 
-                         9.372 9.373 24.568.001 33.941z"/>
+                         9.372 9.373 24.568.001 33.941z"
+                ></path>
               </svg>
             </li>
             <li class="flex items-center">
-              <span class="text-amber-100 text-xl" aria-current="page">Cotizar {title}</span>
+              <span class="text-amber-100 text-xl" aria-current="page"
+                >Cotizar {title}</span
+              >
             </li>
           </ol>
         </nav>
       </div>
 
-      <div class="p-8 bg-amber-900/10 rounded-b-2xl">
+      <div
+        class="p-8 bg-amber-900/10 rounded-b-2xl
+                dark:bg-amber-950/40"
+      >
         <div class="flex flex-col md:flex-row gap-8">
-
           <!-- Imagen del producto -->
           <div class="md:w-1/3">
             <div class="bg-amber-950/90 rounded-xl p-4 border-0 shadow-lg">
@@ -85,55 +106,82 @@ const productRequestTemplate = messages.productRequestTemplate;
           <div class="md:w-2/3">
             <h1 class="text-3xl font-extrabold text-amber-900 mb-2">{title}</h1>
             <p class="text-amber-800 mb-6">{description}</p>
-            
+
             <div class="flex items-center mb-6">
               <span class="text-3xl font-bold text-amber-950">S/ {price}</span>
-              <span class="ml-2 text-xl font-bold text-amber-600">/ {unit}</span>
+              <span class="ml-2 text-xl font-bold text-amber-600">/ {unit}</span
+              >
             </div>
 
             <form id="cotizacion-form" class="space-y-3">
               <!-- Cantidad -->
-              <div class="bg-white p-4 rounded-xl border-0 shadow-lg">
-                <label for="cantidad" class="block text-amber-900 font-semibold mb-2">
+              <div
+                class="bg-white p-4 rounded-xl border-0 shadow-lg
+                        dark:bg-amber-950/20 hover:shadow-amber-950/50"
+              >
+                <label
+                  for="cantidad"
+                  class="block text-amber-900 font-semibold mb-2
+                                            dark:text-amber-900"
+                >
                   ¿Qué cantidad necesitas?
                 </label>
                 <div class="flex items-center gap-4">
-                  <input 
-                    type="number" 
-                    id="cantidad" 
-                    name="cantidad" 
-                    min="1" 
-                    value="1" 
-                    class="appearance-auto w-32 px-4 py-2 border border-amber-900 rounded-lg 
-                           focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  <input
+                    type="number"
+                    id="cantidad"
+                    name="cantidad"
+                    min="1"
+                    value="1"
+                    class="appearance-auto w-32 px-4 py-2 border ring-1 border-amber-900 rounded-lg
+                        dark:bg-amber-950/20 dark:text-amber-950
+                          focus:outline-none focus:ring-1 focus:ring-amber-950"
                   />
                   <span class="text-amber-700 font-medium">{productName}</span>
                 </div>
               </div>
 
               <!-- Método de entrega -->
-              <div class="bg-white p-4 rounded-xl border-0 shadow-lg">
-                <label for="entrega" class="block text-amber-900 font-semibold mb-2">
+              <div
+                class="bg-white p-4 rounded-xl border-0 shadow-lg
+                      dark:bg-amber-950/20 hover:shadow-amber-950/50"
+              >
+                <label
+                  for="entrega"
+                  class="block text-amber-900 font-semibold mb-2"
+                >
                   ¿Cómo prefieres recibir tu pedido?
                 </label>
-                <select 
-                  id="entrega" 
-                  name="entrega" 
-                  class="w-full px-4 py-2 border border-amber-900 rounded-lg 
-                         focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
+                <select
+                  id="entrega"
+                  name="entrega"
+                  class="w-full px-4 py-2 border ring-1 border-amber-900 rounded-lg
+                       dark:bg-amber-950/20 dark:text-amber-950
+                        focus:outline-none focus:ring-1 focus:ring-amber-950"
                 >
-                  <option value="Recojo en Sede">🏬 Recojo en Sede (Gratis)</option>
-                  <option value="Envío a domicilio">🚚 Envío a domicilio (Costo según ubicación)</option>
+                  <option value="Recojo en Sede"
+                    >🏬 Recojo en Sede (Gratis)</option
+                  >
+                  <option value="Envío a domicilio"
+                    >🚚 Envío a domicilio (Costo según ubicación)</option
+                  >
                 </select>
               </div>
 
               <!-- Total Estimado -->
-              <div class="bg-amber-950/90 p-4 rounded-xl border-0 shadow-lg">
+              <div
+                class="bg-amber-950/90 p-4 rounded-xl border-0 shadow-lg shadow-amber-950/50"
+              >
                 <div class="flex justify-between items-center">
-                  <span class="text-amber-600 font-semibold">Total Estimado:</span>
+                  <span class="text-amber-600 text-xl font-semibold"
+                    >Total Estimado:</span
+                  >
                   <div class="text-right">
                     <!-- Inicial = precio × peso × 1 -->
-                    <span id="total" class="block text-3xl font-bold text-amber-600">
+                    <span
+                      id="total"
+                      class="block text-3xl font-bold text-amber-600"
+                    >
                       S/ {(parseFloat(price) * peso).toFixed(2)}
                     </span>
                     <span class="text-amber-700 text-sm">
@@ -144,41 +192,79 @@ const productRequestTemplate = messages.productRequestTemplate;
               </div>
 
               <!-- Botón de WhatsApp -->
-              <button 
-                type="button" 
+              <button
+                type="button"
                 id="whatsapp-btn"
-                class="w-full flex items-center justify-center px-6 py-4 text-lg font-medium 
-                       rounded-xl text-white bg-green-600 hover:bg-green-700 transition-colors 
-                       shadow-lg hover:shadow-xl"
+                class="w-full flex items-center justify-center px-6 py-4 text-lg font-medium
+                       rounded-xl text-white bg-green-600 hover:bg-green-700 transition-colors
+                       shadow-lg hover:shadow-xl hover:shadow-amber-950/50"
               >
-                <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path fill-rule="evenodd"
-                        d="M12 2C6.48 2 2 6.48 2 12c0 1.85.53 3.56 1.43 
+                <svg
+                  class="w-6 h-6 mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2C6.48 2 2 6.48 2 12c0 1.85.53 3.56 1.43 
                            5.02L2 22l5.01-1.34c1.38.75 2.94 
                            1.19 4.58 1.19 5.52 0 10-4.48 10-10S17.52 
                            2 12 2zm0 18c-1.33 0-2.6-.26-3.77-.73l-.27
                            -.08-2.79.75.75-2.79-.08-.27C5.26 14.6 5 
                            13.33 5 12c0-3.86 3.14-7 7-7s7 3.14 7 7-3.14 
                            7-7 7z"
-                        clip-rule="evenodd"
-                  />
+                    clip-rule="evenodd"></path>
                 </svg>
                 Solicitar por WhatsApp
               </button>
+
+              <!-- Botón TikTok -->
+              <div class="flex justify-center w-full mt-5">
+                <a
+                  href="https://www.tiktok.com/@fundosanfermin?_t=ZM-8wxXKgEYosQ&_r=1"
+                  target="_blank"
+                  class="rounded-2xl p-2 bg-zinc-950 text-white transition-colors border-0 shadow-sm shadow-amber-50/50
+                        hover:bg-slate-950 hover:shadow-amber-950/50"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 48 48"
+                    width="32"
+                    height="32"
+                    fill="currentColor"
+                  >
+                    <g>
+                      <path
+                        d="M33.5 6.5c.3 2.7 2.2 7.2 7.1 7.6v6.1c-2.1.2-4.2-.1-6.1-.8v13.2c0 7.2-6.1 10.4-11.2 10.4-5.2 0-10.3-3.2-10.3-10.4 0-7.1 5.1-10.3 10.3-10.3.5 0 1 .1 1.5.1v6.2c-.5-.1-1-.2-1.5-.2-2.2 0-4.2 1.5-4.2 4.2 0 2.8 2 4.2 4.2 4.2 2.1 0 4.2-1.3 4.2-4.2V6.5h6z"
+                      ></path>
+                    </g>
+                  </svg>
+                </a>
+              </div>
             </form>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </Layout>
 
-<script define:vars={{ price, title, unit, product: productName, peso, whatsappNumber, productRequestTemplate }}>
-  const cantidadInput = document.querySelector('#cantidad');
-  const entregaSelect = document.querySelector('#entrega');
-  const totalSpan = document.querySelector('#total');
-  const whatsappBtn = document.querySelector('#whatsapp-btn');
+<script
+  define:vars={{
+    price,
+    title,
+    unit,
+    product: productName,
+    peso,
+    whatsappNumber,
+    productRequestTemplate,
+  }}
+>
+  const cantidadInput = document.querySelector("#cantidad");
+  const entregaSelect = document.querySelector("#entrega");
+  const totalSpan = document.querySelector("#total");
+  const whatsappBtn = document.querySelector("#whatsapp-btn");
 
   const precioBase = parseFloat(price);
   const pesoProducto = parseFloat(peso);
@@ -191,7 +277,7 @@ const productRequestTemplate = messages.productRequestTemplate;
     const totalNumber = cantidad * precioBase * pesoProducto;
 
     // Formateamos con separadores de miles y dos decimales
-    const totalFormatted = totalNumber.toLocaleString('en-US', {
+    const totalFormatted = totalNumber.toLocaleString("en-US", {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     });
@@ -200,17 +286,17 @@ const productRequestTemplate = messages.productRequestTemplate;
   }
 
   function getWhatsAppMessage() {
-    if (!cantidadInput || !entregaSelect) return '';
+    if (!cantidadInput || !entregaSelect) return "";
     const cantidad = Math.max(1, parseInt(cantidadInput.value) || 1);
     const entrega = entregaSelect.value;
     const totalNumber = cantidad * precioBase * pesoProducto;
 
     // Primero formateamos todos los valores que queramos mostrar
-    const precioFormatted = precioBase.toLocaleString('en-US', {
+    const precioFormatted = precioBase.toLocaleString("en-US", {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     });
-    const totalFormatted = totalNumber.toLocaleString('en-US', {
+    const totalFormatted = totalNumber.toLocaleString("en-US", {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     });
@@ -227,15 +313,14 @@ const productRequestTemplate = messages.productRequestTemplate;
     return mensaje;
   }
 
-  cantidadInput?.addEventListener('input', updateTotal);
-  entregaSelect?.addEventListener('change', updateTotal);
+  cantidadInput?.addEventListener("input", updateTotal);
+  entregaSelect?.addEventListener("change", updateTotal);
 
-  whatsappBtn?.addEventListener('click', () => {
+  whatsappBtn?.addEventListener("click", () => {
     const mensaje = encodeURIComponent(getWhatsAppMessage());
-    window.open(`https://wa.me/${whatsappNumber}?text=${mensaje}`, '_blank');
+    window.open(`https://wa.me/${whatsappNumber}?text=${mensaje}`, "_blank");
   });
 
   // Calculamos el total inicial al cargar (cantidad = 1)
   updateTotal();
 </script>
-
