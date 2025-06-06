@@ -8,9 +8,12 @@ interface Props {
 }
 
 const {
-  title = "Pecanas Maja Ica-Perú",
-  description = "Venta de pecanas Maja al por mayor y menor",
+  title = "Pecanas Maja Ica-Perú | Venta de Pecanas al Por Mayor y Menor",
+  description = "Venta de pecanas en Ica - Lima - Perú directo al productor mayorista. Pecanas frescas, peladas y sin pelar. Distribución a nivel nacional, ideal para negocios y consumo directo.",
 } = Astro.props;
+
+const keywords =
+  "pecanas, frutos secos, venta por mayor y menor, Ica, Lima, Perú, pecanas peladas, productos naturales";
 ---
 
 <!doctype html>
@@ -18,9 +21,28 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Pecanas Maja - Xtian" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/images/hero_imagen.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/images/hero_imagen.png" />
+
     <title>{title}</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon_pecana.ico" />
+    <link rel="canonical" href="https://web-pecanas.vercel.app/" />
   </head>
   <body class="min-h-dvh bg-amber-50 text-amber-950 dark:bg-slate-950/90">
     <slot />
